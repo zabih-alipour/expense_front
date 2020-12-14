@@ -1,0 +1,24 @@
+.menu-container{
+    /*background-color: lightblue;*/
+}
+
+.menu-ul {
+    margin-top: 0;
+    list-style: none;
+    direction: rtl;
+    border-bottom: darkgrey solid 1px;
+}
+.menu-ul li {
+    display: inline-flex;
+    padding: 10px;
+    min-width: 30%;
+    flex-direction: column;
+}
+.menu-list-item:hover {
+    cursor: pointer;
+    background-color: darkgrey;
+}
+
+.menu-ul a {
+    text-decoration: none;
+}

@@ -8,11 +8,21 @@ class InvoiceList extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/invoices')
+        fetch('/invoices/' + this.props.filterItems)
             .then(res => res.json())
             .then(data => {
                 this.setState({invoices: data});
             });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.filterItems !== this.props.filterItems) {
+            fetch('/invoices/' + this.props.filterItems)
+                .then(res => res.json())
+                .then(data => {
+                    this.setState({invoices: data});
+                });
+        }
     }
 
     render() {

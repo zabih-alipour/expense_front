@@ -1,6 +1,6 @@
 import React from "react";
 import './Subject.css'
-import {Container, Table} from 'react-bootstrap'
+import {Container, ListGroup} from 'react-bootstrap'
 
 class Subject extends React.Component {
     state = {
@@ -18,26 +18,17 @@ class Subject extends React.Component {
     render() {
         return (
             <Container>
-                <Table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>ردیف</th>
-                        <th>نام</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <ListGroup onSelect={(selectedKey)=> this.props.onClick(selectedKey)}>
                     {
                         this.state.subjects.map((data, key) => {
                             return (
-                                <tr key={key}>
-                                    <td>{key + 1}</td>
-                                    <td>{data.name}</td>
-                                </tr>
+                                <ListGroup.Item action eventKey={data.id}>
+                                    {data.name}
+                                </ListGroup.Item>
                             )
                         })
                     }
-                    </tbody>
-                </Table>
+                </ListGroup>
             </Container>
         )
     }

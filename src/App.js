@@ -17,11 +17,11 @@ class App extends React.Component {
 
     render() {
         let currentTab;
-        if (this.state.tabIndex === 0)
+        if (this.state.tabIndex === "0")
             currentTab = <Home/>
-        else if (this.state.tabIndex === 1)
+        else if (this.state.tabIndex === "1")
             currentTab = <Invoice/>
-        else if (this.state.tabIndex === 2)
+        else if (this.state.tabIndex === "2")
             currentTab = <Report/>
         return (
             <div className="App">

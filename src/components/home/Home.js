@@ -1,12 +1,23 @@
 import React from "react";
 import './Home.css'
+import DailyExpenseChart from '../report/DailyExpenseChart'
+import SubjectPieChart from '../report/SubjectPieChart'
+import {Container, Row, Col} from 'react-bootstrap'
 
 class Home extends React.Component {
     render() {
         return (
-            <div className={'home-container'}>
-                <h1> Home </h1>
-            </div>
+            <Container fluid>
+                <Row>
+                    <Col>
+                        <SubjectPieChart/>
+                    </Col>
+                    <Col>
+                        <DailyExpenseChart/>
+                    </Col>
+                </Row>
+            </Container>
+
         )
     }
 }

@@ -31,7 +31,7 @@ class InvoiceList extends React.Component {
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>ردیف</th>
+                        {/*<th>ردیف</th>*/}
                         <th>تاریخ</th>
                         <th>آیتم</th>
                         <th>تعداد</th>
@@ -44,7 +44,7 @@ class InvoiceList extends React.Component {
                         this.state.invoices.map((data, key) => {
                             return (
                                 <tr key={key}>
-                                    <td>{key + 1}</td>
+                                    {/*<td>{key + 1}</td>*/}
                                     <td>{data.factor_date}</td>
                                     <td>{data.item_name}</td>
                                     <td>{data.quality}</td>

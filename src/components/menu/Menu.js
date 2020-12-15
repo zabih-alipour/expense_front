@@ -23,6 +23,9 @@ class Menu extends React.Component {
                         <Nav.Item>
                             <Nav.Link eventKey={"2"}>گزارش</Nav.Link>
                         </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey={"3"}>ثبت آیتم جدید</Nav.Link>
+                        </Nav.Item>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

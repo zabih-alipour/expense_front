@@ -1,9 +1,10 @@
 import React from "react";
 import './Invoice.css'
-import '../subject/Subject'
+import '../subject/SubjectList'
 import './InvoiceList'
-import Subject from "../subject/Subject";
+import SubjectList from "../subject/SubjectList";
 import InvoiceList from "./InvoiceList";
+import InvoiceAdd from "./InvoiceAdd";
 import {Container, Row, Col} from 'react-bootstrap'
 
 class Invoice extends React.Component {
@@ -28,9 +29,10 @@ class Invoice extends React.Component {
             <Container fluid={true} className={"mt-2"}>
                 <Row>
                     <Col xs={{span: 3}}>
-                        <Subject onClick={(p)=>this.filterItem(p)}/>
+                        <SubjectList onClick={(p)=>this.filterItem(p)}/>
                     </Col>
                     <Col xs={{span: 9}}>
+                        <InvoiceAdd/>
                         <InvoiceList filterItems={this.state.selectedSubject}/>
                     </Col>
                 </Row>

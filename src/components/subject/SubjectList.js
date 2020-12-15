@@ -1,8 +1,8 @@
 import React from "react";
-import './Subject.css'
+import './SubjectList.css'
 import {Container, ListGroup} from 'react-bootstrap'
 
-class Subject extends React.Component {
+class SubjectList extends React.Component {
     state = {
         subjects: []
     }
@@ -34,4 +34,4 @@ class Subject extends React.Component {
     }
 }
 
-export default Subject
+export default SubjectList

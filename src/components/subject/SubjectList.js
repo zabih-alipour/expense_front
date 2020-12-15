@@ -22,7 +22,7 @@ class SubjectList extends React.Component {
                     {
                         this.state.subjects.map((data, key) => {
                             return (
-                                <ListGroup.Item action eventKey={data.id}>
+                                <ListGroup.Item key={key} action eventKey={data.id}>
                                     {data.name}
                                 </ListGroup.Item>
                             )

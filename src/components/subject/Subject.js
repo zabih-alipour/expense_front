@@ -1,19 +1,17 @@
 import React from "react";
-import './Invoice.css'
-import '../subject/SubjectList'
-import './InvoiceList'
-import SubjectList from "../subject/SubjectList";
-import InvoiceList from "./InvoiceList";
-import InvoiceAdd from "./InvoiceAdd";
+import '../invoice/Invoice.css'
+import './SubjectList'
+import '../invoice/InvoiceList'
+import SubjectList from "./SubjectList";
+import SubjectLineChart from "../report/SubjectLineChart";
 import {Container, Row, Col} from 'react-bootstrap'
 
-class Invoice extends React.Component {
+class Subject extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedSubject: 0
+            selectedSubject: 1
         }
-        // this.filterInvoices = this.filterItem.bind(this)
     }
 
     filterItem (selectedItem){
@@ -31,8 +29,7 @@ class Invoice extends React.Component {
                         <SubjectList onClick={(p)=>this.filterItem(p)}/>
                     </Col>
                     <Col xs={{span: 9}}>
-                        <InvoiceAdd/>
-                        <InvoiceList filterItems={this.state.selectedSubject}/>
+                        <SubjectLineChart selectedSubject={this.state.selectedSubject}/>
                     </Col>
                 </Row>
             </Container>
@@ -40,4 +37,4 @@ class Invoice extends React.Component {
     }
 }
 
-export default Invoice
+export default Subject

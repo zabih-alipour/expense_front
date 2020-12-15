@@ -4,12 +4,12 @@ import Menu from './components/menu/Menu'
 import Home from './components/home/Home'
 import Invoice from './components/invoice/Invoice'
 import Report from './components/report/Report'
-import SubjectAdd from './components/subject/SubjectAdd'
+import Subject from './components/subject/Subject'
 import React from "react";
 
 class App extends React.Component {
     state = {
-        tabIndex: "0"
+        tabIndex: "home"
     }
 
     changeTab(index) {
@@ -18,14 +18,14 @@ class App extends React.Component {
 
     render() {
         let currentTab;
-        if (this.state.tabIndex === "0")
+        if (this.state.tabIndex === "home")
             currentTab = <Home/>
-        else if (this.state.tabIndex === "1")
+        else if (this.state.tabIndex === "invoice")
             currentTab = <Invoice/>
-        else if (this.state.tabIndex === "2")
+        else if (this.state.tabIndex === "report")
             currentTab = <Report/>
-        else if (this.state.tabIndex === "3")
-            currentTab = <SubjectAdd/>
+        else if (this.state.tabIndex === "subject")
+            currentTab = <Subject/>
         return (
             <div className="App">
                 <Menu onClick={(p) => this.changeTab(p)}/>

@@ -18,7 +18,6 @@ export default class DailyExpenseChart extends React.Component {
         fetch('/reports/daily-expense')
             .then(res => res.json())
             .then(result => {
-                console.log(result)
                 result.forEach(p => {
                     obj.labels.push(p['factor_date'])
                     obj.resultData.push(p['amount'])

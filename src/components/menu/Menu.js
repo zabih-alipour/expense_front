@@ -15,16 +15,15 @@ class Menu extends React.Component {
                         onSelect={(selectedKey) => this.props.onClick(selectedKey)}
                     >
                         <Nav.Item>
-                            <Nav.Link eventKey={"0"} >خانه</Nav.Link>
+                            <Nav.Link eventKey={"home"} >خانه</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey={"1"}>ثبت خرید</Nav.Link>
+                            <Nav.Link eventKey={"subject"}>اقلام خرید</Nav.Link>
+                        </Nav.Item><Nav.Item>
+                            <Nav.Link eventKey={"invoice"}>صورت حساب</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey={"2"}>گزارش</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey={"3"}>ثبت آیتم جدید</Nav.Link>
+                            <Nav.Link eventKey={"report"}>گزارش</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Navbar.Collapse>

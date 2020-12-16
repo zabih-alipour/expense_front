@@ -17,8 +17,8 @@ class SubjectList extends React.Component {
 
     render() {
         return (
-            <Container>
-                <ListGroup onSelect={(selectedKey)=> this.props.onClick(selectedKey)}>
+            <Container className={"scroll-300"}>
+                <ListGroup  onSelect={(selectedKey)=> this.props.onClick(selectedKey)}>
                     {
                         this.state.subjects.map((data, key) => {
                             return (

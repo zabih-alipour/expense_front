@@ -15,8 +15,18 @@ class SubjectAdd extends React.Component {
     }
 
     saveSubject() {
+        if (this.state.subject.name.trim().length > 0) {
+            fetch('/subjects', {
+                method: 'post',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(this.state.subject)
+            })
+                .then(res => res.json())
+                .then(data => {
 
-        this.props.onHide()
+                })
+            this.props.onHide()
+        }
     }
 
     onTextChange(txt) {
@@ -29,6 +39,8 @@ class SubjectAdd extends React.Component {
                     } else this.setState({matchedSubjects: []})
                 })
         } else this.setState({matchedSubjects: []})
+
+        this.setState({subject: {name: txt}})
     }
 
     render() {

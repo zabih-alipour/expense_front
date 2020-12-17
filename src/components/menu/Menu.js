@@ -1,10 +1,18 @@
 import React from "react";
 import './Menu.css'
 import '../invoice/InvoiceAdd'
-import {Navbar, Nav, Button} from 'react-bootstrap'
+import {Button, Nav, Navbar} from 'react-bootstrap'
 import InvoiceAdd from "../invoice/InvoiceAdd";
 
 class Menu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            subjects: []
+        }
+        this.getSubject()
+
+    }
 
     state = {
         show: false
@@ -18,7 +26,16 @@ class Menu extends React.Component {
         this.setState({show: false})
     }
 
+    getSubject() {
+        fetch('/subjects')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({subjects: data});
+            });
+    }
+
     render() {
+        const {show, subjects} = this.state
         return (
             <Navbar bg="primary" variant="dark" expand={"lg"} sticky={"top"}>
                 <Navbar.Brand href={"/"}> مخارج </Navbar.Brand>
@@ -45,7 +62,8 @@ class Menu extends React.Component {
                     <Button variant="outline-light"
                             onClick={() => this.showModal()}>فاکتور جدید</Button>
                     <InvoiceAdd
-                        show={this.state.show}
+                        show={show}
+                        subjects={subjects}
                         onHide={() => this.closeModal()}/>
                 </Nav.Item>
             </Navbar>

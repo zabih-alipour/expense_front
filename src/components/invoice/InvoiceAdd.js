@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useRef} from "react";
+import SubjectAutoSuggest from '../auto_compelet/SubjectAutoSuggest'
 import {Button, Form, Modal} from 'react-bootstrap'
 
 function InvoiceAdd(props) {
-    const subjectEL = React.useRef(null)
-    const factorDateEL = React.useRef(null)
-    const priceEL = React.useRef(null)
-    const quantityEL = React.useRef(null)
-    const descriptionEL = React.useRef(null)
+    const subjectEL = useRef()
+    const factorDateEL = useRef()
+    const priceEL = useRef()
+    const quantityEL = useRef()
+    const descriptionEL = useRef()
+
 
     function saveInvoice(event) {
         event.preventDefault()
@@ -20,7 +22,6 @@ function InvoiceAdd(props) {
             quantity: quantityEL.current.value,
             description: descriptionEL.current.value
         }
-
         fetch('/invoices', {
             method: 'post',
             headers: {"Content-Type": "application/json"},
@@ -30,8 +31,8 @@ function InvoiceAdd(props) {
             .then(data => {
 
             })
+        props.onHide()
     }
-
 
     return (
         <Modal
@@ -40,6 +41,7 @@ function InvoiceAdd(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
+
             <Form className="mb-3" onSubmit={(event) => saveInvoice(event)}>
                 <Modal.Header>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -49,15 +51,14 @@ function InvoiceAdd(props) {
                 <Modal.Body>
 
                     <Form.Group controlId="item">
-                        <Form.Control type="text" placeholder="آیتم خریداری شده"
-                                      ref={subjectEL}/>
+                        <SubjectAutoSuggest val={subjectEL} subjects={props.subjects} />
                     </Form.Group>
                     <Form.Group controlId="factor_date">
                         <Form.Control type="number" placeholder="تاریخ"
                                       ref={factorDateEL}/>
                     </Form.Group>
                     <Form.Group controlId="quantity">
-                        <Form.Control type="number" placeholder="تعداد"
+                        <Form.Control type="float" placeholder="تعداد"
                                       ref={quantityEL}/>
                     </Form.Group>
                     <Form.Group controlId="price">
@@ -72,14 +73,12 @@ function InvoiceAdd(props) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={() => this.props.onHide()}>بستن</Button>
+                    <Button onClick={() => props.onHide()}>بستن</Button>
                     <Button type={"submit"}>ذخیره</Button>
                 </Modal.Footer>
             </Form>
         </Modal>
     )
-
-
 }
 
 export default InvoiceAdd

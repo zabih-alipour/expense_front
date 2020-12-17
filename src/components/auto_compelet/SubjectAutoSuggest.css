@@ -1,0 +1,24 @@
+.popup-suggestion {
+    position: absolute;
+    z-index: 10;
+    width: 50%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    border-bottom: black solid 1px;
+    border-left: black solid 1px;
+    border-right: black solid 1px;
+}
+
+.popup-suggestion-row {
+    padding: 5px;
+    border-bottom: darkgray solid 1px;
+    background: aliceblue;
+    border-radius: 10px;
+}
+
+.popup-suggestion-row:hover{
+    background: aqua;
+}
+.popup-suggestion:last-child{
+    border-radius: 10px;
+}

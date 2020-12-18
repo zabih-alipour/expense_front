@@ -5,3 +5,6 @@
 .subject-list-item:hover {
     background: lightsteelblue;
 }
+.subject-add-button{
+    width: 100%;
+}

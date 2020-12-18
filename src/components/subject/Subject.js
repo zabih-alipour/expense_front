@@ -11,7 +11,6 @@ class Subject extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
             selectedSubject: 1
         }
     }
@@ -22,28 +21,10 @@ class Subject extends React.Component {
         });
     }
 
-    showModal() {
-        this.setState({show: true})
-    }
-
-    closeModal() {
-        this.setState({show: false})
-    }
-
-
     render() {
         const {show} = this.state
         return (
             <Container fluid={true} className={"mt-2"}>
-                <SubjectAdd show={show}
-                            onHide={() => this.closeModal()}
-                />
-                <Row>
-                    <Col xs={{span: 11}}/>
-                    <Col xs={{span: 1}}>
-                        <Button onClick={() => this.showModal()}>ثبت جدید</Button>
-                    </Col>
-                </Row>
                 <Row>
                     <Col xs={{span: 3}}>
                         <SubjectList onClick={(p) => this.filterItem(p)}/>

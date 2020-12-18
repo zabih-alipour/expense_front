@@ -1,9 +1,11 @@
 import React from "react";
 import './SubjectList.css'
-import {Container, Form, ListGroup} from 'react-bootstrap'
+import {Button, Col, Container, Form, ListGroup, Row} from 'react-bootstrap'
+import SubjectAdd from "./SubjectAdd";
 
 class SubjectList extends React.Component {
     state = {
+        show: false,
         subjects: [],
         searchSubjects: []
     }
@@ -22,18 +24,33 @@ class SubjectList extends React.Component {
     onSearch(val) {
         if (val !== undefined && val !== null && val.trim().length > 0) {
             let searchSubjects = this.state.subjects.filter(p => p.name.slice(0, val.length) === val);
-            console.log(searchSubjects)
             this.setState({searchSubjects: searchSubjects})
         } else this.setState({searchSubjects: this.state.subjects})
     }
 
+    showModal() {
+        this.setState({show: true})
+    }
+
+    closeModal() {
+        this.setState({show: false})
+    }
+
     render() {
+        const {show} = this.state
         return (
             <Container className={"scroll-300"}>
+                <SubjectAdd show={show}
+                            onHide={() => this.closeModal()}
+                />
                 <ListGroup onSelect={(selectedKey) => this.props.onClick(selectedKey)}>
                     <ListGroup.Item style={{backgroundColor: 'lightsteelblue'}}>
                         <Form.Control type={"text"} placeholder={"برای جستجو تایپ کنید"}
                                       onChange={(e) => this.onSearch(e.target.value)}/>
+                    </ListGroup.Item>
+                    <ListGroup.Item style={{backgroundColor: 'lightsteelblue'}}>
+                        <Button variant={"info"} className={"subject-add-button"}
+                                onClick={() => this.showModal()}>ثبت جدید</Button>
                     </ListGroup.Item>
 
                     {

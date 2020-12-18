@@ -1,3 +1,7 @@
 .scroll-300 {
     max-height: 100px;
 }
+
+.subject-list-item:hover {
+    background: lightsteelblue;
+}

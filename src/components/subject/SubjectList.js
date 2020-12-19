@@ -55,6 +55,9 @@ class SubjectList extends React.Component {
                 </ListGroup>
                 <div style={{overflow:"scroll", maxHeight:"700px"}}>
                     <ListGroup onSelect={(selectedKey) => this.props.onClick(selectedKey)}>
+                        <ListGroup.Item className={"subject-list-item"} key={0} action eventKey={0}>
+                            تمام اقلام
+                        </ListGroup.Item>
                         {
                             this.state.searchSubjects.map((data, key) => {
                                 return (

@@ -39,7 +39,7 @@ class SubjectList extends React.Component {
     render() {
         const {show} = this.state
         return (
-            <Container className={"scroll-300"}>
+            <Container>
                 <SubjectAdd show={show}
                             onHide={() => this.closeModal()}
                 />
@@ -52,17 +52,20 @@ class SubjectList extends React.Component {
                         <Button variant={"info"} className={"subject-add-button"}
                                 onClick={() => this.showModal()}>ثبت جدید</Button>
                     </ListGroup.Item>
-
-                    {
-                        this.state.searchSubjects.map((data, key) => {
-                            return (
-                                <ListGroup.Item className={"subject-list-item"} key={key} action eventKey={data.id}>
-                                    {data.name}
-                                </ListGroup.Item>
-                            )
-                        })
-                    }
                 </ListGroup>
+                <div style={{overflow:"scroll", maxHeight:"700px"}}>
+                    <ListGroup onSelect={(selectedKey) => this.props.onClick(selectedKey)}>
+                        {
+                            this.state.searchSubjects.map((data, key) => {
+                                return (
+                                    <ListGroup.Item className={"subject-list-item"} key={key} action eventKey={data.id}>
+                                        {data.name}
+                                    </ListGroup.Item>
+                                )
+                            })
+                        }
+                    </ListGroup>
+                </div>
             </Container>
         )
     }
